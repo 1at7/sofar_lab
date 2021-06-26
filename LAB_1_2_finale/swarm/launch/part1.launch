@@ -1,0 +1,44 @@
+<launch>
+
+    <!-- defining workspace -->
+    <param name="/world_size" type="double" value="2.0"/>
+    
+
+    <!-- key_typed to key_hit -->
+    <node pkg="capture_key" type="capture_key_node" name="cap_key" clear_params="true" >
+        <remap from="/key_typed" to="/key_hit"/>
+    </node>
+    
+
+    <!-- leader to leader_pos -->
+    <node pkg="swarm" type="swarm_behavior" name="blue" clear_params="true" >
+        <param name="move_key" type="int" value="98"/>
+        <remap from="/leader" to="/leader_pos_blue"/>
+    </node>
+    
+
+    <node pkg="swarm" type="swarm_behavior" name="red" clear_params="true" >
+        <param name="move_key" type="int" value="114"/>
+        <remap from="/leader" to="/leader_pos_red"/>
+    </node>
+
+
+    <!-- Blue leader_pos to bird 1 and 2 -->
+    <node pkg="swarm" type="swarm_node" name="blue_node_1" clear_params="true" >
+        <remap from="/leader_pos" to="/leader_pos_blue"/>
+        <remap from="/pos" to="pos_blue_1"/>
+    </node>
+
+
+
+
+    <!-- Red leader_pos to bird 1 and 2 -->
+    <node pkg="swarm" type="swarm_node" name="red_node_1" clear_params="true" >
+        <remap from="/leader_pos" to="/leader_pos_red" />
+        <remap from="/pos" to="pos_red_1"/>
+    </node>
+
+
+
+
+</launch>

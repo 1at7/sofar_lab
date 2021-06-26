@@ -1,0 +1,10 @@
+<launch>
+
+    <param name="/world_size" type="double" value="2.0"/>
+    
+    <node pkg="..." type="..." name="..." clear_params="true" >
+        <param name="..." type="..." value="..." />
+        <remap from="..." to="..."/>
+    </node>
+    
+</launch>

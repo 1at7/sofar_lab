@@ -1,0 +1,66 @@
+<launch>
+
+    <!-- defining workspace -->
+    <param name="/world_size" type="double" value="2.0"/>
+    
+
+    <!-- key_typed to key_hit -->
+<node pkg="capture_key" type="capture_key_node" name="capture_key_node" output ="screen" clear_params="true" >
+    </node>
+    
+
+
+    <!-- Blue leader_pos to bird 1 and 2 -->
+
+
+<group ns="blueTeam" >
+    
+    <node pkg="swarm" type="swarm_behavior_5b" name="blue" clear_params="true" >
+        <param name="move_key" type="int" value="98"/>
+    </node>
+
+    <node pkg="swarm" type="swarm_node_5b" name="blue_node_1" clear_params="true" >
+    </node>
+
+    <node pkg="swarm" type="swarm_node_5b" name="blue_node_2" clear_params="true" >
+    </node>
+
+    <node pkg="swarm" type="swarm_node_5b" name="blue_node_3" clear_params="true" >
+    </node>
+
+    <node pkg="swarm" type="swarm_node_5b" name="blue_node_4" clear_params="true" >
+    </node>
+
+    <node pkg="swarm" type="swarm_node_5b" name="blue_node_5" clear_params="true" >
+    </node>
+</group>
+
+
+    <!-- Red leader_pos to bird 1 and 2 -->
+
+<group ns="redTeam" >
+
+    <node pkg="swarm" type="swarm_behavior_5b" name="red" clear_params="true" >
+        <param name="move_key" type="int" value="114"/>
+        
+    </node>
+
+
+    <node pkg="swarm" type="swarm_node_5b" name="red_node_1" clear_params="true" >
+    </node>
+
+    <node pkg="swarm" type="swarm_node_5b" name="red_node_2" clear_params="true" >
+    </node>
+
+    <node pkg="swarm" type="swarm_node_5b" name="red_node_3" clear_params="true" >
+    </node>
+
+    <node pkg="swarm" type="swarm_node_5b" name="red_node_4" clear_params="true" >
+    </node>
+
+    <node pkg="swarm" type="swarm_node_5b" name="red_node_5" clear_params="true" >
+    </node>
+</group>
+
+
+</launch>
